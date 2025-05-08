@@ -1,0 +1,6 @@
+# React Native Nitro Modules
+#nitrogen/
+
+node_modules
+*.log
+.DS_Store

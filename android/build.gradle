@@ -1,0 +1,17 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply from: '../nitrogen/generated/android/AIMediaKit+autolinking.gradle'
+
+android {
+  compileSdkVersion 33
+  defaultConfig {
+    minSdkVersion 21
+    targetSdkVersion 33
+  }
+}
+
+dependencies {
+  implementation 'com.facebook.react:react-native:+'
+  implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.8.0'
+  implementation project(':react-native-nitro-modules')
+}

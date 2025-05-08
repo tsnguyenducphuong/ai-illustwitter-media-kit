@@ -1,0 +1,36 @@
+{
+    "name": "ai-illustwitter-media-kit",
+    "version": "1.0.0",
+    "description": "AI Illustwitter Media Kit: high performance image and video processing library.",
+    "main": "index.js",
+    "types": "src/AIMediaKit.nitro.ts",
+    "keywords": ["react-native", "ai-illustwitter", "nitro", "video", "image-to-video", "expo", "skia"],
+    "author": "Phuong Nguyen <nguyenducphuong@ai-illustwitter.art>",
+    "license": "MIT",
+    "homepage": "https://ai-illustwitter.art",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/tsnguyenducphuong/ai-illustwitter-media-kit.git"
+    },
+    "bugs": { "url": "https://github.com/tsnguyenducphuong/ai-illustwitter-media-kit/issues" },
+    "peerDependencies": {
+      "react-native": ">=0.70.0",
+      "react-native-nitro-modules": "^0.25.2"
+    },
+    "devDependencies": { "nitro-codegen": "^0.25.2" },
+    "files": [
+      "android",
+      "ios",
+      "src",
+      "index.js",
+      "nitro.json",
+      "nitrogen/generated",
+      "VideoConverter.podspec",
+      "LICENSE",
+      "README.md"
+    ],
+    "scripts": {
+      "build": "npx nitro-codegen",
+      "prepublishOnly": "npm run build"
+    }
+  }

@@ -1,0 +1,14 @@
+{
+    "$schema": "https://nitro.margelo.com/nitro.schema.json",
+    "cxxNamespace": ["aimediakit"],
+    "ios": {
+      "iosModuleName": "AIMediaKit"
+    },
+    "android": {
+      "androidNamespace": ["aimediakit"],
+      "androidCxxLibName": "AIMediaKit"
+    },
+    "autolinking": {},
+    "ignorePaths": ["node_modules"]
+   
+  }
