@@ -1,4 +1,4 @@
-package aimediakit
+package media
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
