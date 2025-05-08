@@ -9,7 +9,7 @@
 
 // Forward declarations of C++ defined types
 // Forward declaration of `HybridAIMediaKitSpec` to properly resolve imports.
-namespace margelo::nitro::aimediakit { class HybridAIMediaKitSpec; }
+namespace margelo::nitro::media { class HybridAIMediaKitSpec; }
 
 // Forward declarations of Swift defined types
 // Forward declaration of `HybridAIMediaKitSpec_cxx` to properly resolve imports.
@@ -30,7 +30,7 @@ namespace AIMediaKit { class HybridAIMediaKitSpec_cxx; }
  * Contains specialized versions of C++ templated types so they can be accessed from Swift,
  * as well as helper functions to interact with those C++ types from Swift.
  */
-namespace margelo::nitro::aimediakit::bridge::swift {
+namespace margelo::nitro::media::bridge::swift {
 
   // pragma MARK: std::shared_ptr<Promise<std::string>>
   /**
@@ -99,17 +99,17 @@ namespace margelo::nitro::aimediakit::bridge::swift {
     return vector;
   }
   
-  // pragma MARK: std::shared_ptr<margelo::nitro::aimediakit::HybridAIMediaKitSpec>
+  // pragma MARK: std::shared_ptr<margelo::nitro::media::HybridAIMediaKitSpec>
   /**
-   * Specialized version of `std::shared_ptr<margelo::nitro::aimediakit::HybridAIMediaKitSpec>`.
+   * Specialized version of `std::shared_ptr<margelo::nitro::media::HybridAIMediaKitSpec>`.
    */
-  using std__shared_ptr_margelo__nitro__aimediakit__HybridAIMediaKitSpec_ = std::shared_ptr<margelo::nitro::aimediakit::HybridAIMediaKitSpec>;
-  std::shared_ptr<margelo::nitro::aimediakit::HybridAIMediaKitSpec> create_std__shared_ptr_margelo__nitro__aimediakit__HybridAIMediaKitSpec_(void* _Nonnull swiftUnsafePointer);
-  void* _Nonnull get_std__shared_ptr_margelo__nitro__aimediakit__HybridAIMediaKitSpec_(std__shared_ptr_margelo__nitro__aimediakit__HybridAIMediaKitSpec_ cppType);
+  using std__shared_ptr_margelo__nitro__media__HybridAIMediaKitSpec_ = std::shared_ptr<margelo::nitro::media::HybridAIMediaKitSpec>;
+  std::shared_ptr<margelo::nitro::media::HybridAIMediaKitSpec> create_std__shared_ptr_margelo__nitro__media__HybridAIMediaKitSpec_(void* _Nonnull swiftUnsafePointer);
+  void* _Nonnull get_std__shared_ptr_margelo__nitro__media__HybridAIMediaKitSpec_(std__shared_ptr_margelo__nitro__media__HybridAIMediaKitSpec_ cppType);
   
-  // pragma MARK: std::weak_ptr<margelo::nitro::aimediakit::HybridAIMediaKitSpec>
-  using std__weak_ptr_margelo__nitro__aimediakit__HybridAIMediaKitSpec_ = std::weak_ptr<margelo::nitro::aimediakit::HybridAIMediaKitSpec>;
-  inline std__weak_ptr_margelo__nitro__aimediakit__HybridAIMediaKitSpec_ weakify_std__shared_ptr_margelo__nitro__aimediakit__HybridAIMediaKitSpec_(const std::shared_ptr<margelo::nitro::aimediakit::HybridAIMediaKitSpec>& strong) { return strong; }
+  // pragma MARK: std::weak_ptr<margelo::nitro::media::HybridAIMediaKitSpec>
+  using std__weak_ptr_margelo__nitro__media__HybridAIMediaKitSpec_ = std::weak_ptr<margelo::nitro::media::HybridAIMediaKitSpec>;
+  inline std__weak_ptr_margelo__nitro__media__HybridAIMediaKitSpec_ weakify_std__shared_ptr_margelo__nitro__media__HybridAIMediaKitSpec_(const std::shared_ptr<margelo::nitro::media::HybridAIMediaKitSpec>& strong) { return strong; }
   
   // pragma MARK: Result<std::shared_ptr<Promise<std::string>>>
   using Result_std__shared_ptr_Promise_std__string___ = Result<std::shared_ptr<Promise<std::string>>>;
@@ -120,4 +120,4 @@ namespace margelo::nitro::aimediakit::bridge::swift {
     return Result<std::shared_ptr<Promise<std::string>>>::withError(error);
   }
 
-} // namespace margelo::nitro::aimediakit::bridge::swift
+} // namespace margelo::nitro::media::bridge::swift

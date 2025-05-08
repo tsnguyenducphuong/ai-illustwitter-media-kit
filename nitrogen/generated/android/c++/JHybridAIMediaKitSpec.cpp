@@ -18,7 +18,7 @@ namespace NitroModules { class ArrayBuffer; }
 #include <NitroModules/JArrayBuffer.hpp>
 #include <NitroModules/JUnit.hpp>
 
-namespace margelo::nitro::aimediakit {
+namespace margelo::nitro::media {
 
   jni::local_ref<JHybridAIMediaKitSpec::jhybriddata> JHybridAIMediaKitSpec::initHybrid(jni::alias_ref<jhybridobject> jThis) {
     return makeCxxInstance(jThis);
@@ -80,4 +80,4 @@ namespace margelo::nitro::aimediakit {
     }();
   }
 
-} // namespace margelo::nitro::aimediakit
+} // namespace margelo::nitro::media

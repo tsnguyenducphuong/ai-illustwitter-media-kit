@@ -19,11 +19,11 @@ import NitroModules
  */
 public class HybridAIMediaKitSpec_cxx {
   /**
-   * The Swift <> C++ bridge's namespace (`margelo::nitro::aimediakit::bridge::swift`)
+   * The Swift <> C++ bridge's namespace (`margelo::nitro::media::bridge::swift`)
    * from `AIMediaKit-Swift-Cxx-Bridge.hpp`.
    * This contains specialized C++ templates, and C++ helper functions that can be accessed from Swift.
    */
-  public typealias bridge = margelo.nitro.aimediakit.bridge.swift
+  public typealias bridge = margelo.nitro.media.bridge.swift
 
   /**
    * Holds an instance of the `HybridAIMediaKitSpec` Swift protocol.
@@ -33,7 +33,7 @@ public class HybridAIMediaKitSpec_cxx {
   /**
    * Holds a weak pointer to the C++ class that wraps the Swift class.
    */
-  private var __cxxPart: bridge.std__weak_ptr_margelo__nitro__aimediakit__HybridAIMediaKitSpec_
+  private var __cxxPart: bridge.std__weak_ptr_margelo__nitro__media__HybridAIMediaKitSpec_
 
   /**
    * Create a new `HybridAIMediaKitSpec_cxx` that wraps the given `HybridAIMediaKitSpec`.
@@ -72,15 +72,15 @@ public class HybridAIMediaKitSpec_cxx {
 
   /**
    * Gets (or creates) the C++ part of this Hybrid Object.
-   * The C++ part is a `std::shared_ptr<margelo::nitro::aimediakit::HybridAIMediaKitSpec>`.
+   * The C++ part is a `std::shared_ptr<margelo::nitro::media::HybridAIMediaKitSpec>`.
    */
-  public func getCxxPart() -> bridge.std__shared_ptr_margelo__nitro__aimediakit__HybridAIMediaKitSpec_ {
+  public func getCxxPart() -> bridge.std__shared_ptr_margelo__nitro__media__HybridAIMediaKitSpec_ {
     let cachedCxxPart = self.__cxxPart.lock()
     if cachedCxxPart.__convertToBool() {
       return cachedCxxPart
     } else {
-      let newCxxPart = bridge.create_std__shared_ptr_margelo__nitro__aimediakit__HybridAIMediaKitSpec_(self.toUnsafe())
-      __cxxPart = bridge.weakify_std__shared_ptr_margelo__nitro__aimediakit__HybridAIMediaKitSpec_(newCxxPart)
+      let newCxxPart = bridge.create_std__shared_ptr_margelo__nitro__media__HybridAIMediaKitSpec_(self.toUnsafe())
+      __cxxPart = bridge.weakify_std__shared_ptr_margelo__nitro__media__HybridAIMediaKitSpec_(newCxxPart)
       return newCxxPart
     }
   }

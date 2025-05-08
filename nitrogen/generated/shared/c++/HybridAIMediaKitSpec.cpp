@@ -7,7 +7,7 @@
 
 #include "HybridAIMediaKitSpec.hpp"
 
-namespace margelo::nitro::aimediakit {
+namespace margelo::nitro::media {
 
   void HybridAIMediaKitSpec::loadHybridMethods() {
     // load base methods/properties
@@ -19,4 +19,4 @@ namespace margelo::nitro::aimediakit {
     });
   }
 
-} // namespace margelo::nitro::aimediakit
+} // namespace margelo::nitro::media

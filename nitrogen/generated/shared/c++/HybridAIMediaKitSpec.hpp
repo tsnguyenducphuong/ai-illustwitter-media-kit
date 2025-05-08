@@ -21,7 +21,7 @@ namespace NitroModules { class ArrayBuffer; }
 #include <vector>
 #include <NitroModules/ArrayBuffer.hpp>
 
-namespace margelo::nitro::aimediakit {
+namespace margelo::nitro::media {
 
   using namespace margelo::nitro;
 
@@ -64,4 +64,4 @@ namespace margelo::nitro::aimediakit {
       static constexpr auto TAG = "AIMediaKit";
   };
 
-} // namespace margelo::nitro::aimediakit
+} // namespace margelo::nitro::media

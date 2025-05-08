@@ -8,7 +8,7 @@ Converting a sequence of images to an MP4 video with customizable FPS, bitrate, 
 ## Installation
 
 ```bash
-npm install ai-illustwitter-media-kit
+npm install ai-illustwitter-media-kit react-native-nitro-modules
 
 
 ## API
@@ -17,7 +17,7 @@ Converts an array of image URIs to an MP4 video.
 
 imageUris: Array of file URIs (e.g., file:///path/to/image.png).
 outputPath: File URI for the output MP4.
-fps: Frames per second (e.g., 30).
+fps: Frames per second (e.g., 25).
 bitrate: Video bitrate in bps (e.g., 3000000 for 3 Mbps).
 width: Video width in pixels.
 height: Video height in pixels.

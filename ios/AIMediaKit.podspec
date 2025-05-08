@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "AIMediaKit"
-    s.version      = "1.0.0"
+    s.version      = "1.0.1"
     s.summary      = "Native module for high performance image and video processing"
     s.homepage     = "https://ai-illustwitter.art/"
     s.license      = "MIT"

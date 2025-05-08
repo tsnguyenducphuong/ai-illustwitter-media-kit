@@ -11,7 +11,7 @@
 #include "AIMediaKit-Swift-Cxx-Umbrella.hpp"
 #include "HybridAIMediaKitSpecSwift.hpp"
 
-namespace margelo::nitro::aimediakit::bridge::swift {
+namespace margelo::nitro::media::bridge::swift {
 
   // pragma MARK: std::function<void(const std::string& /* result */)>
   Func_void_std__string create_Func_void_std__string(void* _Nonnull swiftClosureWrapper) {
@@ -29,13 +29,13 @@ namespace margelo::nitro::aimediakit::bridge::swift {
     };
   }
   
-  // pragma MARK: std::shared_ptr<margelo::nitro::aimediakit::HybridAIMediaKitSpec>
-  std::shared_ptr<margelo::nitro::aimediakit::HybridAIMediaKitSpec> create_std__shared_ptr_margelo__nitro__aimediakit__HybridAIMediaKitSpec_(void* _Nonnull swiftUnsafePointer) {
+  // pragma MARK: std::shared_ptr<margelo::nitro::media::HybridAIMediaKitSpec>
+  std::shared_ptr<margelo::nitro::media::HybridAIMediaKitSpec> create_std__shared_ptr_margelo__nitro__media__HybridAIMediaKitSpec_(void* _Nonnull swiftUnsafePointer) {
     AIMediaKit::HybridAIMediaKitSpec_cxx swiftPart = AIMediaKit::HybridAIMediaKitSpec_cxx::fromUnsafe(swiftUnsafePointer);
-    return std::make_shared<margelo::nitro::aimediakit::HybridAIMediaKitSpecSwift>(swiftPart);
+    return std::make_shared<margelo::nitro::media::HybridAIMediaKitSpecSwift>(swiftPart);
   }
-  void* _Nonnull get_std__shared_ptr_margelo__nitro__aimediakit__HybridAIMediaKitSpec_(std__shared_ptr_margelo__nitro__aimediakit__HybridAIMediaKitSpec_ cppType) {
-    std::shared_ptr<margelo::nitro::aimediakit::HybridAIMediaKitSpecSwift> swiftWrapper = std::dynamic_pointer_cast<margelo::nitro::aimediakit::HybridAIMediaKitSpecSwift>(cppType);
+  void* _Nonnull get_std__shared_ptr_margelo__nitro__media__HybridAIMediaKitSpec_(std__shared_ptr_margelo__nitro__media__HybridAIMediaKitSpec_ cppType) {
+    std::shared_ptr<margelo::nitro::media::HybridAIMediaKitSpecSwift> swiftWrapper = std::dynamic_pointer_cast<margelo::nitro::media::HybridAIMediaKitSpecSwift>(cppType);
   #ifdef NITRO_DEBUG
     if (swiftWrapper == nullptr) [[unlikely]] {
       throw std::runtime_error("Class \"HybridAIMediaKitSpec\" is not implemented in Swift!");
@@ -45,4 +45,4 @@ namespace margelo::nitro::aimediakit::bridge::swift {
     return swiftPart.toUnsafe();
   }
 
-} // namespace margelo::nitro::aimediakit::bridge::swift
+} // namespace margelo::nitro::media::bridge::swift
