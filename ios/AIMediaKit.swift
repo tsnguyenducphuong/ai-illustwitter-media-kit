@@ -24,13 +24,8 @@ class AIMediaKit: HybridAIMediaKitSpec {
             }
             guard fps > 0, bitrate > 0, width > 0, height > 0 else {
                 throw  NSError(domain: "AIMediaKit", code: -3, userInfo: [NSLocalizedDescriptionKey: "Invalid parameters."])
-            }
-
-            // Ensure output file doesn't exist
-            try? FileManager.default.removeItem(at: outputUrl)
-
-            // Run on a background queue
-            DispatchQueue.global(qos: .userInitiated).async {
+            } 
+           
                 do {
                     let writer = try AVAssetWriter(outputURL: outputUrl, fileType: .mp4)
                     let videoSettings: [String: Any] = [
@@ -59,18 +54,13 @@ class AIMediaKit: HybridAIMediaKitSpec {
 
                     for (index, imageUri) in imageUris.enumerated() {
                         guard let imageUrl = URL(string: imageUri) ?? URL(fileURLWithPath: imageUri) else {
-                            DispatchQueue.main.async {
-                                throw NSError(domain: "AIMediaKit", code: -4, userInfo: [NSLocalizedDescriptionKey: "Failed to load image at index \(index)"])
-                            }
                             
-                            return
+                            return "Invalid image url"
                         }
                         let imageData = try Data(contentsOf: imageUrl)
                         guard let image = UIImage(data: imageData) else {
-                            DispatchQueue.main.async {
-                                throw NSError(domain: "AIMediaKit", code: -5, userInfo: [NSLocalizedDescriptionKey: "Failed to process image at index \(index)"])
-                            }
-                            return
+                            
+                            return "Invalid image"
                         }
 
                         // Scale image to target size
@@ -78,10 +68,8 @@ class AIMediaKit: HybridAIMediaKitSpec {
 
                         guard let pixelBufferPool = pixelBufferAdaptor.pixelBufferPool,
                               let pixelBuffer = self.createPixelBuffer(from: scaledImage, width: Int(width), height: Int(height)) else {
-                            DispatchQueue.main.async {
-                                throw NSError(domain: "AIMediaKit", code: -6, userInfo: [NSLocalizedDescriptionKey: "Pixel create buffer failed."])
-                            }
-                            return
+                           
+                            return "Can't create pixel buffer."
                         }
 
                         let presentationTime = CMTimeMultiply(frameDuration, multiplier: Int32(index))
@@ -93,48 +81,35 @@ class AIMediaKit: HybridAIMediaKitSpec {
                     }
 
                     writerInput.markAsFinished()
-                    writer.finishWriting {
-                        DispatchQueue.main.async {
-                            if writer.status == .completed {
-                                return outputPath
-                            } else {
-                                throw NSError(domain: "AIMediaKit", code: -8, userInfo: [NSLocalizedDescriptionKey: "Write video failed."])
-                            }
-                        }
-                    }
+                    try await writer.finishWriting()
+                    outputUrl
+
                 } catch {
                     throw error
                 }
-            }
+            
         }
     }
 
     func saveSkiaImage(imageData: ArrayBufferHolder, outputPath: String) throws -> Promise<String> {
         Promise.async {
             guard let outputUrl = URL(string: outputPath) ?? URL(fileURLWithPath: outputPath) else {
-                throw AIMediaKitError.invalidOutputPath
+                throw NSError(domain: "AIMediaKit", code: -10, userInfo: [NSLocalizedDescriptionKey: "Invalid output path."])
             }
 
-            // Run on a background queue
-            DispatchQueue.global(qos: .userInitiated).async {
+           
                 do {
                     let data = imageData.data()
                     guard let image = UIImage(data: data) else {
-                        DispatchQueue.main.async {
-                            throw NSError(domain: "AIMediaKit", code: -9, userInfo: [NSLocalizedDescriptionKey: "Ivalid image data."])
-                        }
-                        return
+                        
+                        return "Invalid image data"
                     }
 
                     // Save as PNG
                     try image.pngData()?.write(to: outputUrl)
-                    DispatchQueue.main.async {
-                        return outputPath
-                    }
+                    outputPath
                 } catch {
-                    DispatchQueue.main.async {
-                        throw error
-                    }
+                    throw error  
                 }
             }
         }

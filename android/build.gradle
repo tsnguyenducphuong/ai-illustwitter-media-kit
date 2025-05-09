@@ -150,6 +150,6 @@ dependencies {
  
   implementation project(":react-native-nitro-modules") // https://mvnrepository.com/artifact/androidx.media3/media3-muxer
   implementation("androidx.media3:media3-muxer:1.4.1")
-  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
-  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2"
 }
