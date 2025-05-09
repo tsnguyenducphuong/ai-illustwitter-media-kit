@@ -1,6 +1,6 @@
 {
     "name": "ai-illustwitter-media-kit",
-    "version": "1.0.2",
+    "version": "1.0.6",
     "description": "AI Illustwitter Media Kit: high performance image and video processing library.",
     "main": "index.js",
     "types": "src/AIMediaKit.nitro.ts",
@@ -28,7 +28,7 @@
       "index.js",
       "nitro.json",
       "nitrogen/generated",
-      "VideoConverter.podspec",
+      "AIMediaKit.podspec",
       "LICENSE",
       "README.md"
     ],

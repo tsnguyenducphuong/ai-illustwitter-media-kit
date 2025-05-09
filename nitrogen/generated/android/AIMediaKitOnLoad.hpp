@@ -8,7 +8,7 @@
 #include <jni.h>
 #include <NitroModules/NitroDefines.hpp>
 
-namespace margelo::nitro::media {
+namespace margelo::nitro::mediakit {
 
   /**
    * Initializes the native (C++) part of AIMediaKit, and autolinks all Hybrid Objects.
@@ -16,10 +16,10 @@ namespace margelo::nitro::media {
    * Example:
    * ```cpp (cpp-adapter.cpp)
    * JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void*) {
-   *   return margelo::nitro::media::initialize(vm);
+   *   return margelo::nitro::mediakit::initialize(vm);
    * }
    * ```
    */
   int initialize(JavaVM* vm);
 
-} // namespace margelo::nitro::media
+} // namespace margelo::nitro::mediakit

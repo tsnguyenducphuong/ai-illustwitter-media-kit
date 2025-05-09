@@ -7,5 +7,5 @@
 
 #include "HybridAIMediaKitSpecSwift.hpp"
 
-namespace margelo::nitro::media {
-} // namespace margelo::nitro::media
+namespace margelo::nitro::mediakit {
+} // namespace margelo::nitro::mediakit

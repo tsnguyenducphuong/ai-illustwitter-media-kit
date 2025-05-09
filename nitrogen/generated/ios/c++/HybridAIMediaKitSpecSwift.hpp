@@ -25,7 +25,7 @@ namespace NitroModules { class ArrayBufferHolder; }
 
 #include "AIMediaKit-Swift-Cxx-Umbrella.hpp"
 
-namespace margelo::nitro::media {
+namespace margelo::nitro::mediakit {
 
   /**
    * The C++ part of HybridAIMediaKitSpec_cxx.swift.
@@ -83,4 +83,4 @@ namespace margelo::nitro::media {
     AIMediaKit::HybridAIMediaKitSpec_cxx _swiftPart;
   };
 
-} // namespace margelo::nitro::media
+} // namespace margelo::nitro::mediakit

@@ -14,14 +14,14 @@
 
 
 
-namespace margelo::nitro::media {
+namespace margelo::nitro::mediakit {
 
   using namespace facebook;
 
   class JHybridAIMediaKitSpec: public jni::HybridClass<JHybridAIMediaKitSpec, JHybridObject>,
                                public virtual HybridAIMediaKitSpec {
   public:
-    static auto constexpr kJavaDescriptor = "Lcom/margelo/nitro/media/HybridAIMediaKitSpec;";
+    static auto constexpr kJavaDescriptor = "Lcom/margelo/nitro/mediakit/HybridAIMediaKitSpec;";
     static jni::local_ref<jhybriddata> initHybrid(jni::alias_ref<jhybridobject> jThis);
     static void registerNatives();
 
@@ -60,4 +60,4 @@ namespace margelo::nitro::media {
     jni::global_ref<JHybridAIMediaKitSpec::javaobject> _javaPart;
   };
 
-} // namespace margelo::nitro::media
+} // namespace margelo::nitro::mediakit

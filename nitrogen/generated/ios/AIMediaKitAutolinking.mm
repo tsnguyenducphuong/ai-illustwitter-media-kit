@@ -19,12 +19,12 @@
 
 + (void) load {
   using namespace margelo::nitro;
-  using namespace margelo::nitro::media;
+  using namespace margelo::nitro::mediakit;
 
   HybridObjectRegistry::registerHybridObjectConstructor(
     "AIMediaKit",
     []() -> std::shared_ptr<HybridObject> {
-      std::shared_ptr<margelo::nitro::media::HybridAIMediaKitSpec> hybridObject = AIMediaKit::AIMediaKitAutolinking::createAIMediaKit();
+      std::shared_ptr<margelo::nitro::mediakit::HybridAIMediaKitSpec> hybridObject = AIMediaKit::AIMediaKitAutolinking::createAIMediaKit();
       return hybridObject;
     }
   );

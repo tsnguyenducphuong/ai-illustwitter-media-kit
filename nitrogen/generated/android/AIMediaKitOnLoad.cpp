@@ -19,22 +19,22 @@
 #include <NitroModules/JNISharedPtr.hpp>
 #include <NitroModules/DefaultConstructableObject.hpp>
 
-namespace margelo::nitro::media {
+namespace margelo::nitro::mediakit {
 
 int initialize(JavaVM* vm) {
   using namespace margelo::nitro;
-  using namespace margelo::nitro::media;
+  using namespace margelo::nitro::mediakit;
   using namespace facebook;
 
   return facebook::jni::initialize(vm, [] {
     // Register native JNI methods
-    margelo::nitro::media::JHybridAIMediaKitSpec::registerNatives();
+    margelo::nitro::mediakit::JHybridAIMediaKitSpec::registerNatives();
 
     // Register Nitro Hybrid Objects
     HybridObjectRegistry::registerHybridObjectConstructor(
       "AIMediaKit",
       []() -> std::shared_ptr<HybridObject> {
-        static DefaultConstructableObject<JHybridAIMediaKitSpec::javaobject> object("com/margelo/nitro/media/AIMediaKit");
+        static DefaultConstructableObject<JHybridAIMediaKitSpec::javaobject> object("com/margelo/nitro/mediakit/AIMediaKit");
         auto instance = object.create();
         auto globalRef = jni::make_global(instance);
         return JNISharedPtr::make_shared_from_jni<JHybridAIMediaKitSpec>(globalRef);
@@ -43,4 +43,4 @@ int initialize(JavaVM* vm) {
   });
 }
 
-} // namespace margelo::nitro::media
+} // namespace margelo::nitro::mediakit
