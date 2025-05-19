@@ -14,7 +14,7 @@ class AIMediaKit: HybridAIMediaKitSpec {
         width: Double,
         height: Double
     ) throws -> Promise<String> {
-        Promise.async {
+        return Promise.async {
             // Validate inputs
             guard !imageUris.isEmpty else {
                 throw NSError(domain: "AIMediaKit", code: -1, userInfo: [NSLocalizedDescriptionKey: "No image provided."])
@@ -54,13 +54,11 @@ class AIMediaKit: HybridAIMediaKitSpec {
 
                     for (index, imageUri) in imageUris.enumerated() {
                         guard let imageUrl = URL(string: imageUri) ?? URL(fileURLWithPath: imageUri) else {
-                            
-                            return "Invalid image url"
+                            throw NSError(domain: "AIMediaKit", code: -4, userInfo: [NSLocalizedDescriptionKey: "Invalid image URL."])
                         }
                         let imageData = try Data(contentsOf: imageUrl)
                         guard let image = UIImage(data: imageData) else {
-                            
-                            return "Invalid image"
+                            throw NSError(domain: "AIMediaKit", code: -5, userInfo: [NSLocalizedDescriptionKey: "Invalid image."])
                         }
 
                         // Scale image to target size
@@ -69,7 +67,7 @@ class AIMediaKit: HybridAIMediaKitSpec {
                         guard let pixelBufferPool = pixelBufferAdaptor.pixelBufferPool,
                               let pixelBuffer = self.createPixelBuffer(from: scaledImage, width: Int(width), height: Int(height)) else {
                            
-                            return "Can't create pixel buffer."
+                            throw NSError(domain: "AIMediaKit", code: -6, userInfo: [NSLocalizedDescriptionKey: "Can't create pixel buffer."])
                         }
 
                         let presentationTime = CMTimeMultiply(frameDuration, multiplier: Int32(index))
@@ -81,35 +79,44 @@ class AIMediaKit: HybridAIMediaKitSpec {
                     }
 
                     writerInput.markAsFinished()
-                    try await writer.finishWriting()
-                    outputUrl
+                    try await withCheckedThrowingContinuation { continuation in
+                         writer.finishWriting {
+                            if writer.status == .completed {
+                                continuation.resume()
+                            } else {
+                                continuation.resume(throwing: writer.error ?? NSError(domain: "AIMediaKit", code: -1000))
+                            }
+                        }
+                    }
+
+                    return outputUrl.path
 
                 } catch {
-                    throw error
+                     throw NSError(domain: "AIMediaKit", code: -100, userInfo: [NSLocalizedDescriptionKey: error.localizedDescription])
                 }
             
         }
     }
 
     func saveSkiaImage(imageData: ArrayBufferHolder, outputPath: String) throws -> Promise<String> {
-        Promise.async {
+        return Promise.async {
             guard let outputUrl = URL(string: outputPath) ?? URL(fileURLWithPath: outputPath) else {
                 throw NSError(domain: "AIMediaKit", code: -10, userInfo: [NSLocalizedDescriptionKey: "Invalid output path."])
             }
 
            
                 do {
-                    let data = imageData.data()
+                    let copy = ArrayBufferHolder.copy(of: imageData)
+                    let data = copy.data()
                     guard let image = UIImage(data: data) else {
-                        
-                        return "Invalid image data"
+                        throw NSError(domain: "AIMediaKit", code: -11, userInfo: [NSLocalizedDescriptionKey: "Invalid image data."])
                     }
 
                     // Save as PNG
                     try image.pngData()?.write(to: outputUrl)
-                    outputPath
+                    return outputUrl.path
                 } catch {
-                    throw error  
+                     throw NSError(domain: "AIMediaKit", code: -120, userInfo: [NSLocalizedDescriptionKey: "Error saving image."])
                 }
             }
         }
