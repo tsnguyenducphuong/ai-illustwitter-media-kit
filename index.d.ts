@@ -8,5 +8,5 @@ declare module "ai-illustwitter-media-kit" {
     height: number
   ): Promise<string>;
 
-  export function saveSkiaImage(imageData: ArrayBuffer, outputPath: string): Promise<string>;
+//   export function saveSkiaImage(imageData: ArrayBuffer, outputPath: string): Promise<string>;
 }

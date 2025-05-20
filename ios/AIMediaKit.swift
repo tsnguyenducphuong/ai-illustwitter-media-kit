@@ -1,6 +1,6 @@
 import Foundation
 import AVFoundation
-import UIKit
+
 import Dispatch
 import NitroModules // Import Promise from NitroModules core
  
@@ -98,29 +98,7 @@ class AIMediaKit: HybridAIMediaKitSpec {
         }
     }
 
-    func saveSkiaImage(imageData: ArrayBufferHolder, outputPath: String) throws -> Promise<String> {
-        return Promise.async {
-            guard let outputUrl = URL(string: outputPath) ?? URL(fileURLWithPath: outputPath) else {
-                throw NSError(domain: "AIMediaKit", code: -10, userInfo: [NSLocalizedDescriptionKey: "Invalid output path."])
-            }
-
-           
-                do {
-                    let copy = ArrayBufferHolder.copy(of: imageData)
-                    let data = copy.data()
-                    guard let image = UIImage(data: data) else {
-                        throw NSError(domain: "AIMediaKit", code: -11, userInfo: [NSLocalizedDescriptionKey: "Invalid image data."])
-                    }
-
-                    // Save as PNG
-                    try image.pngData()?.write(to: outputUrl)
-                    return outputUrl.path
-                } catch {
-                     throw NSError(domain: "AIMediaKit", code: -120, userInfo: [NSLocalizedDescriptionKey: "Error saving image."])
-                }
-            }
-        }
-    }
+     
 
     // Helper to convert UIImage to CVPixelBuffer
     private func createPixelBuffer(from image: UIImage, width: Int, height: Int) -> CVPixelBuffer? {
