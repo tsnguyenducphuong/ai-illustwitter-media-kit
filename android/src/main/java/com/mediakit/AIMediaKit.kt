@@ -1,4 +1,4 @@
-package com.margelo.nitro.mediakit
+package com.mediakit
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
