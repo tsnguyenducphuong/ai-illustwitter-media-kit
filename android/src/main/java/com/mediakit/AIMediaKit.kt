@@ -133,6 +133,8 @@ class AIMediaKit : HybridAIMediaKitSpec() {
                     }
 
                     outputPath
+                } catch (e: Exception) {
+                    throw e
                 } finally {
                     try {
                         encoder?.stop()
