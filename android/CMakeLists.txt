@@ -1,7 +1,7 @@
 project(AIMediaKit)
 cmake_minimum_required(VERSION 3.9.0)
 
-set(PACKAGE_NAME mediakit)
+set(PACKAGE_NAME AIMediaKit)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 set(CMAKE_CXX_STANDARD 20)
 
