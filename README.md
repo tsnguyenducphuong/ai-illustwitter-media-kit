@@ -22,9 +22,4 @@ bitrate: Video bitrate in bps (e.g., 3000000 for 3 Mbps).
 width: Video width in pixels.
 height: Video height in pixels.
 Returns: Promise resolving to the output MP4 URI.
-saveSkiaImage(imageData: ArrayBuffer, outputPath: string): Promise<string>
-Saves a Skia image (from surface.makeImageSnapshot().encodeToBytes()) as a PNG.
-
-imageData: ArrayBuffer containing PNG-encoded image data.
-outputPath: File URI for the output PNG.
-Returns: Promise resolving to the output PNG URI.
+ 

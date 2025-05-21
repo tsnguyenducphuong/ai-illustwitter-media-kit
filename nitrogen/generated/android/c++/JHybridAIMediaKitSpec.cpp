@@ -7,16 +7,12 @@
 
 #include "JHybridAIMediaKitSpec.hpp"
 
-// Forward declaration of `ArrayBuffer` to properly resolve imports.
-namespace NitroModules { class ArrayBuffer; }
+
 
 #include <NitroModules/Promise.hpp>
 #include <string>
 #include <NitroModules/JPromise.hpp>
 #include <vector>
-#include <NitroModules/ArrayBuffer.hpp>
-#include <NitroModules/JArrayBuffer.hpp>
-#include <NitroModules/JUnit.hpp>
 
 namespace margelo::nitro::mediakit {
 
@@ -50,22 +46,6 @@ namespace margelo::nitro::mediakit {
       }
       return __array;
     }(), jni::make_jstring(outputPath), fps, bitrate, width, height);
-    return [&]() {
-      auto __promise = Promise<std::string>::create();
-      __result->cthis()->addOnResolvedListener([=](const jni::alias_ref<jni::JObject>& __boxedResult) {
-        auto __result = jni::static_ref_cast<jni::JString>(__boxedResult);
-        __promise->resolve(__result->toStdString());
-      });
-      __result->cthis()->addOnRejectedListener([=](const jni::alias_ref<jni::JThrowable>& __throwable) {
-        jni::JniException __jniError(__throwable);
-        __promise->reject(std::make_exception_ptr(__jniError));
-      });
-      return __promise;
-    }();
-  }
-  std::shared_ptr<Promise<std::string>> JHybridAIMediaKitSpec::saveSkiaImage(const std::shared_ptr<ArrayBuffer>& imageData, const std::string& outputPath) {
-    static const auto method = javaClassStatic()->getMethod<jni::local_ref<JPromise::javaobject>(jni::alias_ref<JArrayBuffer::javaobject> /* imageData */, jni::alias_ref<jni::JString> /* outputPath */)>("saveSkiaImage");
-    auto __result = method(_javaPart, JArrayBuffer::wrap(imageData), jni::make_jstring(outputPath));
     return [&]() {
       auto __promise = Promise<std::string>::create();
       __result->cthis()->addOnResolvedListener([=](const jni::alias_ref<jni::JObject>& __boxedResult) {

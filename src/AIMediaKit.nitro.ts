@@ -9,5 +9,5 @@ export interface AIMediaKit extends HybridObject<{ ios: 'swift', android: 'kotli
     width: number,
     height: number
   ): Promise<string>;
-  saveSkiaImage(imageData: ArrayBuffer, outputPath: string): Promise<string>;
+  
 }

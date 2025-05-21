@@ -13,13 +13,11 @@
 #error NitroModules cannot be found! Are you sure you installed NitroModules properly?
 #endif
 
-// Forward declaration of `ArrayBuffer` to properly resolve imports.
-namespace NitroModules { class ArrayBuffer; }
+
 
 #include <NitroModules/Promise.hpp>
 #include <string>
 #include <vector>
-#include <NitroModules/ArrayBuffer.hpp>
 
 namespace margelo::nitro::mediakit {
 
@@ -53,7 +51,6 @@ namespace margelo::nitro::mediakit {
     public:
       // Methods
       virtual std::shared_ptr<Promise<std::string>> createVideoFromImages(const std::vector<std::string>& imageUris, const std::string& outputPath, double fps, double bitrate, double width, double height) = 0;
-      virtual std::shared_ptr<Promise<std::string>> saveSkiaImage(const std::shared_ptr<ArrayBuffer>& imageData, const std::string& outputPath) = 0;
 
     protected:
       // Hybrid Setup

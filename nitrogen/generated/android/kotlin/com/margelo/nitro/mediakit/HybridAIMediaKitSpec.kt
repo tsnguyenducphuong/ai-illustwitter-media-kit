@@ -43,10 +43,6 @@ abstract class HybridAIMediaKitSpec: HybridObject() {
   @DoNotStrip
   @Keep
   abstract fun createVideoFromImages(imageUris: Array<String>, outputPath: String, fps: Double, bitrate: Double, width: Double, height: Double): Promise<String>
-  
-  @DoNotStrip
-  @Keep
-  abstract fun saveSkiaImage(imageData: ArrayBuffer, outputPath: String): Promise<String>
 
   private external fun initHybrid(): HybridData
 

@@ -52,7 +52,6 @@ namespace margelo::nitro::mediakit {
   public:
     // Methods
     std::shared_ptr<Promise<std::string>> createVideoFromImages(const std::vector<std::string>& imageUris, const std::string& outputPath, double fps, double bitrate, double width, double height) override;
-    std::shared_ptr<Promise<std::string>> saveSkiaImage(const std::shared_ptr<ArrayBuffer>& imageData, const std::string& outputPath) override;
 
   private:
     friend HybridBase;

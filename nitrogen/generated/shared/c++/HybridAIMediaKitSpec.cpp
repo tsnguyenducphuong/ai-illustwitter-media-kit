@@ -15,7 +15,6 @@ namespace margelo::nitro::mediakit {
     // load custom methods/properties
     registerHybrids(this, [](Prototype& prototype) {
       prototype.registerHybridMethod("createVideoFromImages", &HybridAIMediaKitSpec::createVideoFromImages);
-      prototype.registerHybridMethod("saveSkiaImage", &HybridAIMediaKitSpec::saveSkiaImage);
     });
   }
 

@@ -8,14 +8,11 @@
 #pragma once
 
 // Forward declarations of C++ defined types
-// Forward declaration of `ArrayBuffer` to properly resolve imports.
-namespace NitroModules { class ArrayBuffer; }
 // Forward declaration of `HybridAIMediaKitSpec` to properly resolve imports.
 namespace margelo::nitro::mediakit { class HybridAIMediaKitSpec; }
 
 // Include C++ defined types
 #include "HybridAIMediaKitSpec.hpp"
-#include <NitroModules/ArrayBuffer.hpp>
 #include <NitroModules/Promise.hpp>
 #include <NitroModules/Result.hpp>
 #include <exception>

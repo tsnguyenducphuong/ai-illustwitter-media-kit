@@ -12,16 +12,11 @@
 // Forward declaration of `HybridAIMediaKitSpec_cxx` to properly resolve imports.
 namespace AIMediaKit { class HybridAIMediaKitSpec_cxx; }
 
-// Forward declaration of `ArrayBuffer` to properly resolve imports.
-namespace NitroModules { class ArrayBuffer; }
-// Forward declaration of `ArrayBufferHolder` to properly resolve imports.
-namespace NitroModules { class ArrayBufferHolder; }
+
 
 #include <NitroModules/Promise.hpp>
 #include <string>
 #include <vector>
-#include <NitroModules/ArrayBuffer.hpp>
-#include <NitroModules/ArrayBufferHolder.hpp>
 
 #include "AIMediaKit-Swift-Cxx-Umbrella.hpp"
 
@@ -64,14 +59,6 @@ namespace margelo::nitro::mediakit {
     // Methods
     inline std::shared_ptr<Promise<std::string>> createVideoFromImages(const std::vector<std::string>& imageUris, const std::string& outputPath, double fps, double bitrate, double width, double height) override {
       auto __result = _swiftPart.createVideoFromImages(imageUris, outputPath, std::forward<decltype(fps)>(fps), std::forward<decltype(bitrate)>(bitrate), std::forward<decltype(width)>(width), std::forward<decltype(height)>(height));
-      if (__result.hasError()) [[unlikely]] {
-        std::rethrow_exception(__result.error());
-      }
-      auto __value = std::move(__result.value());
-      return __value;
-    }
-    inline std::shared_ptr<Promise<std::string>> saveSkiaImage(const std::shared_ptr<ArrayBuffer>& imageData, const std::string& outputPath) override {
-      auto __result = _swiftPart.saveSkiaImage(ArrayBufferHolder(imageData), outputPath);
       if (__result.hasError()) [[unlikely]] {
         std::rethrow_exception(__result.error());
       }
