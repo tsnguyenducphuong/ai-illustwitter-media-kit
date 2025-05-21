@@ -1,4 +1,4 @@
-package com.mediakit
+package com.margelo.nitro.mediakit
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -10,8 +10,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.lang.IllegalStateException
-import com.margelo.nitro.mediakit.*
+import com.margelo.nitro.mediakit.HybridAIMediaKitSpec
 
+@Keep
+@DoNotStrip
 class AIMediaKit : HybridAIMediaKitSpec() {
     companion object {
         const val TAG = "HybridAIMediaKit"

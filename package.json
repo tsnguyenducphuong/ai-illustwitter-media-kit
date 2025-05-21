@@ -1,6 +1,6 @@
 {
     "name": "ai-illustwitter-media-kit",
-    "version": "1.0.16",
+    "version": "1.0.17",
     "description": "AI Illustwitter Media Kit: high performance image and video processing library.",
     "main": "index.js",
     "types": "src/AIMediaKit.nitro.ts",

@@ -1,4 +1,4 @@
-package com.mediakit
+package com.margelo.nitro.mediakit
 
 
 import com.facebook.react.TurboReactPackage
