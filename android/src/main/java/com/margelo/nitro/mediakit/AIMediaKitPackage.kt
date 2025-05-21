@@ -9,7 +9,7 @@ import com.facebook.react.module.model.ReactModuleInfoProvider
 import com.margelo.nitro.mediakit.AIMediaKitOnLoad
 
 
-class AIMedieaKitPackage : TurboReactPackage() {
+class AIMediaKitPackage : TurboReactPackage() {
     @Override
     override fun getModule(name: String, reactContext: ReactApplicationContext): NativeModule? {
         return null
