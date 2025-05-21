@@ -3,7 +3,7 @@ High performance image and video processing library
 
 # images-video-converter
 
-Converting a sequence of images to an MP4 video with customizable FPS, bitrate, and resolution. Supports saving Skia images for use with `@shopify/react-native-skia`.
+Converting a sequence of images to an MP4 video with customizable FPS, bitrate, and resolution.  
 
 ## Installation
 
