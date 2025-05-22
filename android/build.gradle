@@ -45,7 +45,7 @@ def isNewArchitectureEnabled() {
 
 android {
   if (supportsNamespace()) {
-    namespace "com.mediakit"
+    namespace "com.margelo.nitro.mediakit"
 
     sourceSets {
       main {
