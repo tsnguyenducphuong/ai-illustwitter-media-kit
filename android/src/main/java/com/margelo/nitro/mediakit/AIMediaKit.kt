@@ -30,7 +30,7 @@ class AIMediaKit : HybridAIMediaKitSpec() {
         height: Double
     ): Promise<String> {
         return Promise.async {
-            withContext(Dispatchers.IO) {
+           // withContext(Dispatchers.IO) {
                 if (imageUris.isEmpty()) throw IllegalArgumentException("No images provided")
                 if (fps <= 0 || bitrate <= 0 || width <= 0 || height <= 0) {
                     throw IllegalArgumentException("Invalid FPS, bitrate, or resolution")
@@ -149,7 +149,7 @@ class AIMediaKit : HybridAIMediaKitSpec() {
                         muxer?.release()
                     } catch (_: Exception) {}
                 }
-            }
+            //}
         }
     }
 }
