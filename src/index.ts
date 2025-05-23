@@ -4,6 +4,10 @@ import type { AIMediaKit as AIMediaKitSpec } from "./AIMediaKit.nitro";
 export const AIMediaKit =
 	NitroModules.createHybridObject<AIMediaKitSpec>("AIMediaKit");
 
+export const getRandomNumber = async (start:number,end:number) => {
+	return AIMediaKit.getRandomNumber(start,end);
+}
+
 export const createVideoFromImages = async (
     imageUris: string[],
     outputPath: string,

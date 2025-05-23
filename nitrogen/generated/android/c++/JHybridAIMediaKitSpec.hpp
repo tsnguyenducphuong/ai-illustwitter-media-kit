@@ -52,6 +52,7 @@ namespace margelo::nitro::mediakit {
   public:
     // Methods
     std::shared_ptr<Promise<std::string>> createVideoFromImages(const std::vector<std::string>& imageUris, const std::string& outputPath, double fps, double bitrate, double width, double height) override;
+    double getRandomNumber(double start, double end) override;
 
   private:
     friend HybridBase;

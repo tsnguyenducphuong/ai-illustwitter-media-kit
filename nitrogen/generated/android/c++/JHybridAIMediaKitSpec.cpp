@@ -59,5 +59,10 @@ namespace margelo::nitro::mediakit {
       return __promise;
     }();
   }
+  double JHybridAIMediaKitSpec::getRandomNumber(double start, double end) {
+    static const auto method = javaClassStatic()->getMethod<double(double /* start */, double /* end */)>("getRandomNumber");
+    auto __result = method(_javaPart, start, end);
+    return __result;
+  }
 
 } // namespace margelo::nitro::mediakit

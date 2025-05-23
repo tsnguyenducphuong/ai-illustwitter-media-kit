@@ -15,6 +15,7 @@ public protocol HybridAIMediaKitSpec_protocol: HybridObject {
 
   // Methods
   func createVideoFromImages(imageUris: [String], outputPath: String, fps: Double, bitrate: Double, width: Double, height: Double) throws -> Promise<String>
+  func getRandomNumber(start: Double, end: Double) throws -> Double
 }
 
 /// See ``HybridAIMediaKitSpec``

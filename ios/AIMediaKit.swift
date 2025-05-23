@@ -4,8 +4,17 @@ import AVFoundation
 import Dispatch
 import NitroModules // Import Promise from NitroModules core
  
-
+enum RandomDoubleError: Error {
+    case invalidRange
+}
 class AIMediaKit: HybridAIMediaKitSpec {
+    func generateRandomDouble(from start: Double, to end: Double) throws -> Double {
+        guard start <= end else {
+            throw RandomDoubleError.invalidRange
+        }
+        return Double.random(in: start...end)
+    }
+
     func createVideoFromImages(
         imageUris: [String],
         outputPath: String,

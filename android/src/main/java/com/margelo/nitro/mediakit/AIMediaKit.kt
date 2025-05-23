@@ -1,5 +1,6 @@
 package com.margelo.nitro.mediakit
 
+import kotlin.random.Random
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
@@ -152,4 +153,9 @@ class AIMediaKit : HybridAIMediaKitSpec() {
             //}
         }
     }
+
+    override fun generateRandomDouble(start: Double, end: Double): Double {
+        return Random.nextDouble(start, end)
+    }
+
 }

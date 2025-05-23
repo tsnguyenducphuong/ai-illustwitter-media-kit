@@ -65,6 +65,14 @@ namespace margelo::nitro::mediakit {
       auto __value = std::move(__result.value());
       return __value;
     }
+    inline double getRandomNumber(double start, double end) override {
+      auto __result = _swiftPart.getRandomNumber(std::forward<decltype(start)>(start), std::forward<decltype(end)>(end));
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
+    }
 
   private:
     AIMediaKit::HybridAIMediaKitSpec_cxx _swiftPart;
