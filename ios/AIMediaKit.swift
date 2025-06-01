@@ -8,7 +8,7 @@ enum RandomDoubleError: Error {
     case invalidRange
 }
 class AIMediaKit: HybridAIMediaKitSpec {
-    func generateRandomDouble(from start: Double, to end: Double) throws -> Double {
+    func getRandomNumber(from start: Double, to end: Double) throws -> Double {
         guard start <= end else {
             throw RandomDoubleError.invalidRange
         }

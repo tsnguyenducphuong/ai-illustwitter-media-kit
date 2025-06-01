@@ -154,7 +154,7 @@ class AIMediaKit : HybridAIMediaKitSpec() {
         }
     }
 
-    override fun generateRandomDouble(start: Double, end: Double): Double {
+    override fun getRandomNumber(start: Double, end: Double): Double {
         return Random.nextDouble(start, end)
     }
 
