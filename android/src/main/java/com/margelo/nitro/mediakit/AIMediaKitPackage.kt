@@ -22,8 +22,8 @@ class AIMediaKitPackage : TurboReactPackage() {
    
     companion object {
         init {
-            AIMediaKitOnLoad.initializeNative()
-            //System.loadLibrary("AIMediaKit")
+            // AIMediaKitOnLoad.initializeNative()
+            System.loadLibrary("AIMediaKit")
         }
     }
    

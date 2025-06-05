@@ -1,6 +1,6 @@
 {
     "name": "ai-illustwitter-media-kit",
-    "version": "1.0.32",
+    "version": "1.0.33",
     "description": "AI Illustwitter Media Kit: high performance image and video processing library.",
     "main": "./lib/commonjs/index.js",
     "module": "./lib/module/index.js",
@@ -21,7 +21,7 @@
       "react-native-nitro-modules": "*"
     },
     "devDependencies": { 
-        "nitro-codegen": "^0.25.2",
+        "nitro-codegen": "^0.26.0",
         "react-native-nitro-modules": "*"
      },
     "files": [
