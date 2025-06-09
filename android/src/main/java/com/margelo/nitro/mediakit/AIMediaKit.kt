@@ -7,6 +7,7 @@ import android.graphics.Canvas
 import android.media.*
 import android.view.Surface
 import com.margelo.nitro.core.Promise
+import com.margelo.nitro.NitroModules
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
@@ -18,9 +19,13 @@ import com.margelo.nitro.mediakit.HybridAIMediaKitSpec
 @Keep
 @DoNotStrip
 class AIMediaKit : HybridAIMediaKitSpec() {
-    companion object {
-        const val TAG = "HybridAIMediaKit"
-    }
+    // companion object {
+    //     const val TAG = "HybridAIMediaKit"
+    // }
+
+    // Obtain application context from NitroModules
+    private val applicationContext = NitroModules.applicationContext
+        ?: throw IllegalStateException("Application context is null")
 
     override fun createVideoFromImages(
         imageUris: Array<String>,
@@ -57,7 +62,13 @@ class AIMediaKit : HybridAIMediaKitSpec() {
                     val surface: Surface = encoder.createInputSurface()
                     encoder.start()
 
-                    muxer = MediaMuxer(outputPath, MediaMuxer.OutputFormat.MUXER_OUTPUT_MPEG_4)
+                    val videoFileName = "aimediakit_${System.currentTimeMillis()}.mp4"
+                    val videoFile = File(
+                            applicationContext.getExternalFilesDir(Environment.DIRECTORY_MOVIES),
+                            videoFileName
+                    )
+
+                    muxer = MediaMuxer(videoFile.absolutePath, MediaMuxer.OutputFormat.MUXER_OUTPUT_MPEG_4)
 
                     val bufferInfo = MediaCodec.BufferInfo()
                     var presentationTimeUs = 0L
@@ -77,7 +88,7 @@ class AIMediaKit : HybridAIMediaKitSpec() {
                             ?: throw IllegalStateException("Failed to decode image at index $index")
 
                         val scaledBitmap = Bitmap.createScaledBitmap(bitmap, width.toInt(), height.toInt(), true)
-                        bitmap.recycle()
+                        bitmap.recycle() 
 
                         val canvas = surface.lockCanvas(null)
                         canvas.drawBitmap(scaledBitmap, 0f, 0f, null)
@@ -137,7 +148,7 @@ class AIMediaKit : HybridAIMediaKitSpec() {
                         }
                     }
 
-                    outputPath
+                    videoFile.absolutePath
                 } catch (e: Exception) {
                     throw e
                 } finally {
