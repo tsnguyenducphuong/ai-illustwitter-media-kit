@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.media.*
 import android.view.Surface
+import android.os.Environment
 import com.margelo.nitro.core.Promise
 import com.margelo.nitro.NitroModules
 import kotlinx.coroutines.Dispatchers
