@@ -1,6 +1,6 @@
 {
     "name": "ai-illustwitter-media-kit",
-    "version": "1.0.38",
+    "version": "1.0.42",
     "description": "AI Illustwitter Media Kit: high performance image and video processing library.",
     "main": "./lib/commonjs/index.js",
     "module": "./lib/module/index.js",

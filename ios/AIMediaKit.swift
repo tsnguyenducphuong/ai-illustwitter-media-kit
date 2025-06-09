@@ -28,14 +28,19 @@ class AIMediaKit: HybridAIMediaKitSpec {
             guard !imageUris.isEmpty else {
                 throw NSError(domain: "AIMediaKit", code: -1, userInfo: [NSLocalizedDescriptionKey: "No image provided."])
             }
-            guard let outputUrl = URL(string: outputPath) ?? URL(fileURLWithPath: outputPath) else {
-                throw NSError(domain: "AIMediaKit", code: -2, userInfo: [NSLocalizedDescriptionKey: "Invalid output path."])
-            }
+            // guard let outputUrl = URL(string: outputPath) ?? URL(fileURLWithPath: outputPath) else {
+            //     throw NSError(domain: "AIMediaKit", code: -2, userInfo: [NSLocalizedDescriptionKey: "Invalid output path."])
+            // }
             guard fps > 0, bitrate > 0, width > 0, height > 0 else {
                 throw  NSError(domain: "AIMediaKit", code: -3, userInfo: [NSLocalizedDescriptionKey: "Invalid parameters."])
             } 
            
                 do {
+                    // Create a temporary file path for the video
+                    let tempDir = NSTemporaryDirectory()
+                    let outputURL = URL(fileURLWithPath: tempDir).appendingPathComponent("aimediakit_\(Int(Date().timeIntervalSince1970)).mp4")
+
+                    // Set up the asset writer
                     let writer = try AVAssetWriter(outputURL: outputUrl, fileType: .mp4)
                     let videoSettings: [String: Any] = [
                         AVVideoCodecKey: AVVideoCodecType.h264,
